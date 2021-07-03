@@ -11,7 +11,7 @@ namespace HotelListing.Services.UnitOfWork.IRepository
       IHotelRepository hotelRepository { get; }
         ICountryRepository countryRepository { get; }
     //  IGenericRepository<Country> genericRepository { get;  }
-    //
+   
         Task Save();
     }
 }

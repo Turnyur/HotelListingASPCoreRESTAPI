@@ -1,3 +1,4 @@
+using HotelListing.Configuration;
 using HotelListing.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +35,7 @@ namespace HotelListing
                 options.UseSqlServer(Configuration.GetConnectionString("HotelListing"))
             );
 
+            services.AddAutoMapper(typeof(MapperInitializer));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
