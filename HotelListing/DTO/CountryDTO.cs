@@ -20,7 +20,7 @@ namespace HotelListing.DTO
     }
 
 
-    public class CountryDTO
+    public class CountryDTO:CreateCountryDTO
     {
 
         public int Id { get; set; }

@@ -11,15 +11,29 @@ namespace HotelListing.Services.UnitOfWork.Repository
     {
         private bool disposed;
         private readonly AppDbContext _context;
-        private ICountryRepository _countryRepository;
-        private IHotelRepository _hotelRepository;
+        /* private ICountryRepository _countryRepository;
+            private IHotelRepository _hotelRepository;
 
-        public IHotelRepository hotelRepository => 
-            (_hotelRepository)??=(IHotelRepository)new HotelRepository(_context);
+            private IGenericRepository<Country> _genericRepository;
+        */
 
-        public ICountryRepository countryRepository =>
-            (_countryRepository)??= (ICountryRepository)new CountryRepository(_context);
+        private IGenericRepository<Country> _countryRepository;
+        private IGenericRepository<Hotel> _hotelRepository;
 
+        
+
+        public IGenericRepository<Country> countryRepository => _countryRepository ??= new GenericRepository<Country>(_context);
+
+        public IGenericRepository<Hotel> hotelRepository => _hotelRepository??= new GenericRepository<Hotel>(_context);
+
+        /*  public IHotelRepository hotelRepository => 
+              (_hotelRepository)??=(IHotelRepository)new HotelRepository(_context); */
+
+        /* public ICountryRepository countryRepository =>
+             (_countryRepository)??= (ICountryRepository)new CountryRepository(_context); */
+
+        /* public IGenericRepository<Country> Repository => _genericRepository??= new GenericRepository<Country>(_context);
+        */
         public UnitOfWork(AppDbContext context)
         {
             _context = context;

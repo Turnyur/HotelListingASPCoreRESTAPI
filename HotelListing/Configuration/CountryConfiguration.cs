@@ -24,8 +24,9 @@ namespace HotelListing.Configuration
                 .IsUnicode(false)
                 .HasMaxLength(3);
 
-            //  builder.HasMany(m => m.Hotels)
-            //   .WithOne(m => m.Country);
+              builder.HasMany(m => m.Hotels)
+               .WithOne(m => m.Country)
+               .HasForeignKey(m=>m.CountryId);
             Country[] countries = new Country[]
             {
                 new Country {Id=1, Name="Nigeria", ShortName="NG" },

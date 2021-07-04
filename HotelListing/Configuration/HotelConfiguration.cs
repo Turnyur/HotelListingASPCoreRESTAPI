@@ -26,6 +26,7 @@ namespace HotelListing.Configuration
            };
 
             builder.HasData(hotels);
+           
         }
     }
 }
