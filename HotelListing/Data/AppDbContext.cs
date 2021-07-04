@@ -1,4 +1,5 @@
 ﻿using HotelListing.Configuration;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HotelListing.Data
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext:IdentityDbContext<ApiUser>
     {
 
         public DbSet<Country> Countries { get; set; }
@@ -22,6 +23,7 @@ namespace HotelListing.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new CountryConfiguration());
             modelBuilder.ApplyConfiguration(new HotelConfiguration());
 

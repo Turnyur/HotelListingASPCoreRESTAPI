@@ -38,6 +38,9 @@ namespace HotelListing
                 options.UseSqlServer(Configuration.GetConnectionString("HotelListing"))
             );
 
+            services.AddAuthentication();
+            services.ConfigureIdentity();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddAutoMapper(typeof(MapperInitializer));
             services.AddControllers()
