@@ -20,12 +20,11 @@ namespace HotelListing.Services.JWT
         private ApiUser _user;
 
         public AuthManager(UserManager<ApiUser> userManager, 
-            IConfiguration configuration, 
-            ApiUser user)
+            IConfiguration configuration)
         {
             _userManager = userManager;
             _configuration = configuration;
-            _user = user;
+           
         }
 
         public async Task<string> CreateToken()

@@ -1,5 +1,6 @@
 using HotelListing.Configuration;
 using HotelListing.Data;
+using HotelListing.Services.JWT;
 using HotelListing.Services.UnitOfWork.IRepository;
 using HotelListing.Services.UnitOfWork.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -42,6 +43,8 @@ namespace HotelListing
             services.ConfigureIdentity();
             services.ConfigureJwt(Configuration);
 
+
+            services.AddScoped<IAuthManager, AuthManager>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddAutoMapper(typeof(MapperInitializer));
             services.AddControllers()
